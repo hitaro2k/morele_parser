@@ -2,13 +2,20 @@ import requests
 from lxml import html
 import re  
 import json
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument("--headless")  
 
 def connection(page):
-    url = f'https://www.morele.net/kategoria/laptopy-31/,,,,,,,,0,,,,/{page}/'
-    response = requests.get(url)
-    if response.status_code == 200:
-        return html.fromstring(response.content)
-    return None
+    driver = webdriver.Chrome(options=options)
+    driver.get('https://www.morele.net/kategoria/laptopy-31/,,,,,,,,0,,,,/1/')
+    htmlDoc = driver.page_source
+    print(htmlDoc)
+    driver.quit()
 
 def parse_page(htmlDoc):
     cart_arr = []
