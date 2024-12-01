@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    background-color: #121029;
+    font-family: "Montserrat";
+}
+
+.wrapper{
+    .warning{
+        color: red;
+        display: flex;
+        justify-content: center;
+    }
+    .header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .logo_img{
+            width: 40%;
+        }
+        .form{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 0px 15px;
+            padding-right: 20px;
+         
+            .input_link{
+                width: 70%;
+                background-color: #282852;
+                color: white;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                padding-left: 10px;
+                height: 35px;
+            }
+            .input_page{
+                width: 22%;
+                background-color: #282852;
+                color: white;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                padding-left: 10px;
+                height: 35px;
+            }
+            .submit_btn{
+                color: white;
+                background-color: #5050ce;
+                border-radius: 5px;
+                border: none;
+                height: 35px;
+                cursor: pointer;
+            }
+        }
+    }
+    .guide{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .title
+        {color: white;}
+        .slider {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            .slides {
+                display: flex;
+                transition: transform 0.5s ease-in-out;      
+                .slide {
+                    min-width: 100%;
+                    text-align: center;
+                    .img {
+                        max-width: 100%;
+                        height: auto;
+                        border-bottom: 1px solid #ddd;
+                    }
+                    
+                    .title {
+                        font-size: 18px;
+                        color: #333;
+                        padding: 10px 0;
+                    }
+                }    
+            }
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .next {
+            right: 10px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+       
+    }
+    
+}
+
+@media(max-width:720px){
+    .wrapper{
+        .header{
+            flex-direction: column;
+            .logo{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                .logo_img{
+                    width: 20%;
+                }
+                margin-bottom: 20px;
+            }
+            .form{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px 0px;
+                padding-right: 20px;
+                align-items: center;
+                .input_page{
+                    width: 70%;
+                }
+                .submit_btn{
+                    width: 50%;
+                }
+            }
+        }
+    }
+ 
+}
