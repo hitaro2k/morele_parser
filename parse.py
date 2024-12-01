@@ -6,16 +6,30 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 options = Options()
 options.add_argument("--headless")  
 
+
 def connection(page):
     driver = webdriver.Chrome(options=options)
-    driver.get('https://www.morele.net/kategoria/laptopy-31/,,,,,,,,0,,,,/1/')
-    htmlDoc = driver.page_source
-    print(htmlDoc)
-    driver.quit()
+    try:
+        driver.get(f'https://www.morele.net/kategoria/laptopy-31/,,,,,,,,0,,,,/{page}/')
+        wait = WebDriverWait(driver, 10)
+        cookie_button = wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-action="cookie-consent#onToggleShowManager"]'))
+        )
+        cookie_button.click()
+        WebDriverWait(driver, 5)
+    
+        html_doc = driver.page_source
+        
+    finally:
+      
+        driver.quit()
+    
+    return html.fromstring(html_doc) 
 
 def parse_page(htmlDoc):
     cart_arr = []
