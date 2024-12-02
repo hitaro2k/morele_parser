@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file
 import os
-from parse import parse_and_generate_excel
+from parser import parse_and_generate_excel
 
 app = Flask(__name__)
 
@@ -12,9 +12,8 @@ def index():
         
         if user_link:
             csv_file = parse_and_generate_excel(user_link,int(user_page))
-            
             return send_file(csv_file, as_attachment=True)
-
+    
     return render_template('index.html')
 
 if __name__ == '__main__':
