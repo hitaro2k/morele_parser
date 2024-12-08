@@ -2,7 +2,6 @@ import requests
 from lxml import html
 import re
 import csv
-import json
 
 def connection(user_link, page):
     try:
